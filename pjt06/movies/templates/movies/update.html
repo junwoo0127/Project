@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+글 수정
+{% endblock title %}
+
+{% block body %}
+<h2>글 수정</h2>
+
+{% comment %} URL, method {% endcomment %}
+<form action="{% url 'movies:update' movie.pk %}" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="수정 완료">
+</form>
+{% endblock body %}  

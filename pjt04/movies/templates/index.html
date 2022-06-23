@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content  %}
+<div class="d-flex">
+  <img src="https://via.placeholder.com/840x600" class="mx-auto d-block" alt="main image">
+</div>
+<div class="row">
+  {% for movie in movies %}
+  <div class="col-12 col-sm-4 col-md-3">
+    <div class="card">
+      <img src="https://via.placeholder.com/600x840" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ movie.title }}</h5>
+        <p class="card-text">{{ movie.content }}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %%}
+</div>
+
+{% endblock content %}

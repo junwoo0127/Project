@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <h1>INDEX</h1>
+{% endblock title %}
+  
+{% block body %}
+  <h2>글 작성</h2>
+  <form action="{% url 'movies:create' %}" method="POST" enctype='multipart/form-data'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="SUBMIT">
+    <hr>
+    <a href="{% url 'movies:index' %}">BACK</a>
+  </form>   
+{% endblock body %}
