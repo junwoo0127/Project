@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ movie.title }}</h1>
+<p>{{ movie.overview }}</p>
+<a href="{% url 'movies:index'%}">뒤로</a>
+<hr>
+
+<h2>추천영화</h2>
+<p>{{ random_movie }}</p>
+<button id="recommend">추천받기</button>
+<p id="input"></p>
+{% comment %} 
+{% for recommend in recommendMovies %}
+<p id="recommend"><a href="{% url 'movies:detail' recommend.id %}">{{ recommend.title }}</a></p>
+{% endfor %} 
+{% endcomment %}
+
+{% endblock %}
+
+
+
+
+{% block script %}
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+<script>
+  const recommend = document.querySelector('#recommend')
+  const recommendMovies = ['인셉션', '배트맨', '닥터스트레인지', '슈퍼맨', '러브액츄얼리', '어바웃타임', '라라랜드', '추격자']
+  recommend.addEventListener('click', function(event){
+    const input = document.querySelector('#input')    
+    const sample = recommendMovies[_.sample(_.range(0,7), 1)]
+    console.log(sample)
+    input.innerText = sample
+  })
+  
+
+  // recommend.push(_.sampleSize(영화전체목록, 10))
+</script>
+{% endblock script %}

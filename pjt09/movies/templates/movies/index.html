@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Movies</h1>
+  
+  
+  {% for movie in movies %}
+  <img src="{{ movie.poster_path }}" alt="image">  
+  <h3>{{ movie.title }}</h3>
+  <p>{{ movie.popularity}} </p>
+  <p>{{ movie.release_date}} </p>
+  
+  <a href="{% url 'movies:detail' movie.pk %}">Detail</a>
+  <hr>
+  
+  {% endfor %}
+
+  
+  
+
+{% endblock %}
+
+{% block script %}
+
+
+{% endblock script %}
